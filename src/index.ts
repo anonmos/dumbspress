@@ -9,7 +9,7 @@ app.get('/*', (req, res) => {
     const fileName = urlParts[urlParts.length - 1]
     console.log(`Serving ${fileName}`)
     const file = getFile(fileName)
-    res.send(file)
+    res.header('Access-Control-Allow-Origin', '*').send(file)
 })
 
 app.listen(port, () => console.log(`File server app listening at http://localhost:${port}`))
